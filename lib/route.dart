@@ -25,11 +25,11 @@ RouteFactory router() {
         break;
       case '/sign-in':
         screen = BlocProvider(
-            create: (context) => SignInBloc(),
-            child: SignInView());
+            create: (context) => SignInBloc(), child: SignInView());
         break;
       case '/sign-up':
-        screen = SignUpView();
+        screen = BlocProvider(
+            create: (context) => SignUpBloc(), child: SignUpView());
 //      case '/todo-detail':
 //        PersonalSchedule schedule =
 //        PersonalSchedule.fromJson(settings.arguments);

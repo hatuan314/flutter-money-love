@@ -31,12 +31,11 @@ class Validation {
       Pattern pattern = r'\$where|\$group|\$eq|\$lt|\$lte|\$gt|\$gte|\$ne';
       RegExp regExp = new RegExp(pattern);
       flag = regExp.hasMatch(value);
-      if(flag == true) {
+      if (flag == true) {
         String injection = regExp.stringMatch(value);
         value = value.replaceAll(injection, '');
       }
-
-    } while(flag == true);
+    } while (flag == true);
     return value;
   }
 }

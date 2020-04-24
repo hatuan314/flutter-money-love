@@ -41,6 +41,12 @@ dependencies:
   gradient_text: ^1.0.2
   # Radio Button Ground
   custom_radio_grouped_button: ^1.0.0
+  # Dio
+  dio: ^3.0.9
+  # Google Sign In
+  google_sign_in: ^4.4.4
+  # Animations
+  animations: ^1.0.0+5
 
 dev_dependencies:
   flutter_test:

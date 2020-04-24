@@ -60,7 +60,7 @@ class _SplashViewState extends State<SplashView> {
                 colors: <Color>[
                   Colors.cyanAccent[400],
                   Colors.indigoAccent,
-                  Colors.pink
+                  Colors.pinkAccent
                 ],
               ),
               style: TextStyle(
@@ -91,8 +91,8 @@ class _SplashViewState extends State<SplashView> {
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter:
-                SplashPainter(_width, _height, radius: 100, color: Colors.pink),
+            foregroundPainter: SplashPainter(_width, _height,
+                radius: 100, color: Colors.pinkAccent),
           ),
         ],
       ),

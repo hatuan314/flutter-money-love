@@ -23,13 +23,13 @@ class RegisterView extends StatelessWidget {
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter:
-                RegisterPainter(30, 0, radius: 60, color: Colors.pink),
+                RegisterPainter(10, 50, radius: 100, color: Colors.pinkAccent),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter: RegisterPainter(
-                MediaQuery.of(context).size.width, 100,
-                radius: 200, color: Colors.cyan),
+                MediaQuery.of(context).size.width * 0.9, 200,
+                radius: 150, color: Colors.cyan),
           ),
         ],
       ),
@@ -43,7 +43,7 @@ class RegisterView extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Expanded(
-            flex: 25,
+            flex: 1,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -61,7 +61,7 @@ class RegisterView extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 75,
+            flex: 2,
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
