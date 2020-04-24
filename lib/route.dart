@@ -30,15 +30,10 @@ RouteFactory router() {
       case '/sign-up':
         screen = BlocProvider(
             create: (context) => SignUpBloc(), child: SignUpView());
-//      case '/todo-detail':
-//        PersonalSchedule schedule =
-//        PersonalSchedule.fromJson(settings.arguments);
-//        return CupertinoPageRoute(builder: (context) {
-//          ScUtil.init(context, pWidth: 750, pHeight: 640);
-//          return BlocProvider(
-//              create: (context) => TodoBloc(),
-//              child: TodoDetailView(schedule: schedule));
-//        });
+        break;
+      case '/home':
+        screen = HomeView();
+        break;
     }
 
     return CupertinoPageRoute(

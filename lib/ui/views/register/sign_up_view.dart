@@ -6,7 +6,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moneyloveapp/blocs/register/register_bloc.dart';
 import 'package:moneyloveapp/models/models.dart';
 import 'package:moneyloveapp/ui/my_ui.dart';
-import 'package:moneyloveapp/ui/views/register/register_painter.dart';
 import 'package:moneyloveapp/utils/utils.dart';
 
 class SignUpView extends StatefulWidget {
@@ -40,22 +39,18 @@ class _SignUpViewState extends State<SignUpView>
 
   Widget _backgroundWidget() {
     return Container(
-      color: Colors.indigoAccent,
+      color: Colors.indigo,
       child: Stack(
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter:
-            RegisterPainter(10, 50, radius: 100, color: Colors.pinkAccent),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2, 100, Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: RegisterPainter(
-                MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.9, 200,
-                radius: 150, color: Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
           ),
         ],
       ),
@@ -67,10 +62,7 @@ class _SignUpViewState extends State<SignUpView>
       slivers: <Widget>[
         SliverAppBar(
           backgroundColor: Colors.transparent,
-          expandedHeight: MediaQuery
-              .of(context)
-              .size
-              .height * 0.2,
+          expandedHeight: MediaQuery.of(context).size.height * 0.2,
           leading: SizedBox(),
           elevation: 0,
           pinned: true,
@@ -81,10 +73,7 @@ class _SignUpViewState extends State<SignUpView>
         ),
         SliverToBoxAdapter(
           child: Container(
-            height: MediaQuery
-                .of(context)
-                .size
-                .height * 0.8,
+            height: MediaQuery.of(context).size.height * 0.8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
               color: Color(0xffFCFAF3),
@@ -163,10 +152,7 @@ class _SignUpViewState extends State<SignUpView>
 
   Widget _mBodyWidget(SignUpState state) {
     return SizedBox(
-      height: MediaQuery
-          .of(context)
-          .size
-          .height * 0.75,
+      height: MediaQuery.of(context).size.height * 0.75,
       child: Form(
         key: _textFormKey,
         child: Column(
@@ -274,8 +260,10 @@ class _SignUpViewState extends State<SignUpView>
     FocusScope.of(context).requestFocus(new FocusNode());
     if (_textFormKey.currentState.validate()) {
       UserSignUp user = UserSignUp(
-          _usernameController.text.trim(), _phoneController.text.trim(),
-          _emailController.text.trim(), _passwordController.text.trim());
+          _usernameController.text.trim(),
+          _phoneController.text.trim(),
+          _emailController.text.trim(),
+          _passwordController.text.trim());
       BlocProvider.of<SignUpBloc>(context).add(BtnSignUpOnPressEvent(user));
     }
   }

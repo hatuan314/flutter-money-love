@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradient_text/gradient_text.dart';
-import 'package:moneyloveapp/ui/views/splash/splash.dart';
+import 'package:moneyloveapp/ui/ultil-widgets/ultil_widget.dart';
 
 class SplashView extends StatefulWidget {
   @override
@@ -18,7 +18,8 @@ class _SplashViewState extends State<SplashView> {
     // TODO: implement initState
     super.initState();
     initData().then((value) async {
-      Navigator.pushReplacementNamed(context, '/register');
+//      Navigator.pushReplacementNamed(context, '/register');
+      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 
@@ -58,9 +59,9 @@ class _SplashViewState extends State<SplashView> {
               "Oipee",
               gradient: LinearGradient(
                 colors: <Color>[
-                  Colors.cyanAccent[400],
-                  Colors.indigoAccent,
-                  Colors.pinkAccent
+                  Colors.cyan[700],
+                  Colors.indigo[700],
+                  Colors.pink[700]
                 ],
               ),
               style: TextStyle(
@@ -81,18 +82,17 @@ class _SplashViewState extends State<SplashView> {
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
+            foregroundPainter: MyPainter(_width, _height, 30, Colors.cyan),
+          ),
+          CustomPaint(
+            size: Size(double.infinity, double.infinity),
             foregroundPainter:
-                SplashPainter(_width, _height, radius: 30, color: Colors.cyan),
+                MyPainter(_width, _height, 60, Colors.indigoAccent),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: SplashPainter(_width, _height,
-                radius: 60, color: Colors.indigoAccent),
-          ),
-          CustomPaint(
-            size: Size(double.infinity, double.infinity),
-            foregroundPainter: SplashPainter(_width, _height,
-                radius: 100, color: Colors.pinkAccent),
+            foregroundPainter:
+                MyPainter(_width, _height, 100, Colors.pinkAccent),
           ),
         ],
       ),

@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moneyloveapp/blocs/register/register_bloc.dart';
 import 'package:moneyloveapp/ui/ultil-widgets/ultil_widget.dart';
-import 'package:moneyloveapp/ui/views/register/register_painter.dart';
 
 class SignInView extends StatefulWidget {
   @override
@@ -34,19 +33,21 @@ class _SignInViewState extends State<SignInView> {
 
   _backgroundWidget() {
     return Container(
-      color: Colors.indigoAccent,
+      color: Colors.indigo,
       child: Stack(
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter:
-                RegisterPainter(10, 50, radius: 100, color: Colors.pinkAccent),
+            foregroundPainter: MyPainter(
+                MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2,
+                100,
+                Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: RegisterPainter(
-                MediaQuery.of(context).size.width * 0.9, 200,
-                radius: 150, color: Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
           ),
         ],
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:moneyloveapp/ui/views/register/register_painter.dart';
+import 'package:moneyloveapp/ui/ultil-widgets/my_painter.dart';
 
 class RegisterView extends StatelessWidget {
   @override
@@ -17,19 +17,21 @@ class RegisterView extends StatelessWidget {
 
   _backgroundWidget(BuildContext context) {
     return Container(
-      color: Colors.indigoAccent,
+      color: Colors.indigo,
       child: Stack(
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter:
-                RegisterPainter(10, 50, radius: 100, color: Colors.pinkAccent),
+            foregroundPainter: MyPainter(
+                MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2,
+                100,
+                Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: RegisterPainter(
-                MediaQuery.of(context).size.width * 0.9, 200,
-                radius: 150, color: Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
           ),
         ],
       ),

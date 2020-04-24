@@ -45,8 +45,8 @@ dependencies:
   dio: ^3.0.9
   # Google Sign In
   google_sign_in: ^4.4.4
-  # Animations
-  animations: ^1.0.0+5
+  # Navigation
+  bubbled_navigation_bar: ^0.0.4
 
 dev_dependencies:
   flutter_test:
