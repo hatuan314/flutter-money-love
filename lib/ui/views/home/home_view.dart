@@ -15,21 +15,19 @@ class HomeView extends StatelessWidget {
     // TODO: implement build
     _menuPositionController = MenuPositionController(initPosition: 0);
 
-    _pageController = PageController(
-        initialPage: 0,
-        keepPage: false,
-        viewportFraction: 1.0
-    );
+    _pageController =
+        PageController(initialPage: 0, keepPage: false, viewportFraction: 1.0);
     _pageController.addListener(handlePageChange);
     return Scaffold(
+      backgroundColor: Color(0xffFCFAF3),
       body: NotificationListener<ScrollNotification>(
         onNotification: (scrollNotification) {
           return checkUserDragging(scrollNotification);
         },
         child: Column(
           children: <Widget>[
-            Expanded(
-              flex: 182,
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 60,
               child: PageView(
                 controller: _pageController,
                 children: [
@@ -37,60 +35,78 @@ class HomeView extends StatelessWidget {
                   StatisticPageView(),
                   AccountPageView()
                 ],
-                onPageChanged: (page) {
-                },
+                onPageChanged: (page) {},
               ),
             ),
-            Expanded(
-              flex: 18,
-              child: Container(
-
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
-                  color: Colors.indigo
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
-                  child: BubbledNavigationBar(
-                    controller: _menuPositionController,
-                    initialIndex: 0,
-                    itemMargin: EdgeInsets.symmetric(
-                        horizontal: ScreenUtil().setWidth(15)),
-                    backgroundColor: Colors.indigo,
-                    defaultBubbleColor: Colors.indigoAccent,
-                    onTap: (index) {
-                      _pageController.animateToPage(
-                          index,
-                          curve: Curves.easeInOutQuad,
-                          duration: Duration(milliseconds: 500)
-                      );
-                    },
-                    items: [
-                      BubbledNavigationBarItem(
-                        icon: Icon(FontAwesomeIcons.wallet, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        activeIcon: Icon(FontAwesomeIcons.wallet, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        title: Text(
-                          'Sổ chi tiêu',
-                          style: TextStyle(color: Colors.white, fontSize: ScreenUtil().setSp(18), fontWeight: FontWeight.w500),
-                        ),
-                      ),BubbledNavigationBarItem(
-                        icon: Icon(FontAwesomeIcons.chartPie, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        activeIcon: Icon(FontAwesomeIcons.chartPie, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        title: Text(
-                          'Báo cáo',
-                          style: TextStyle(color: Colors.white, fontSize: ScreenUtil().setSp(18), fontWeight: FontWeight.w500),
-                        ),
-                      ),BubbledNavigationBarItem(
-                        icon: Icon(FontAwesomeIcons.user, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        activeIcon: Icon(FontAwesomeIcons.user, size: ScreenUtil().setSp(24), color: Color(0xffFCFAF3)),
-                        title: Text(
-                          'Tài khoản',
-                          style: TextStyle(color: Colors.white, fontSize: ScreenUtil().setSp(18), fontWeight: FontWeight.w500),
-                        ),
+            Container(
+              height: 60,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  borderRadius:
+                  BorderRadius.vertical(top: Radius.circular(20)),
+                  color: Colors.indigo),
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                child: BubbledNavigationBar(
+                  controller: _menuPositionController,
+                  initialIndex: 0,
+                  itemMargin: EdgeInsets.symmetric(
+                      horizontal: ScreenUtil().setWidth(15)),
+                  backgroundColor: Colors.indigo,
+                  defaultBubbleColor: Colors.indigoAccent,
+                  iconRightMargin: 10,
+                  onTap: (index) {
+                    _pageController.animateToPage(index,
+                        curve: Curves.easeInOutQuad,
+                        duration: Duration(milliseconds: 500));
+                  },
+                  items: [
+                    BubbledNavigationBarItem(
+                      icon: Icon(FontAwesomeIcons.wallet,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      activeIcon: Icon(FontAwesomeIcons.wallet,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      title: Text(
+                        'Sổ chi tiêu',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
                       ),
-                    ],
-                  ),
+                    ),
+                    BubbledNavigationBarItem(
+                      icon: Icon(FontAwesomeIcons.chartPie,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      activeIcon: Icon(FontAwesomeIcons.chartPie,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      title: Text(
+                        'Báo cáo',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                    BubbledNavigationBarItem(
+                      icon: Icon(FontAwesomeIcons.user,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      activeIcon: Icon(FontAwesomeIcons.user,
+                          size: 24,
+                          color: Color(0xffFCFAF3)),
+                      title: Text(
+                        'Tài khoản',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             )
@@ -105,7 +121,8 @@ class HomeView extends StatelessWidget {
   }
 
   bool checkUserDragging(ScrollNotification scrollNotification) {
-    if (scrollNotification is UserScrollNotification && scrollNotification.direction != ScrollDirection.idle) {
+    if (scrollNotification is UserScrollNotification &&
+        scrollNotification.direction != ScrollDirection.idle) {
       userPageDragging = true;
     } else if (scrollNotification is ScrollEndNotification) {
       userPageDragging = false;
@@ -116,5 +133,4 @@ class HomeView extends StatelessWidget {
 
     return userPageDragging;
   }
-
 }
