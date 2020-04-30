@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:moneyloveapp/blocs/register/register_bloc.dart';
+import 'package:moneyloveapp/blocs/blocs.dart';
 import 'package:moneyloveapp/ui/my_ui.dart';
 
 int currentRoot = 1;
@@ -32,7 +32,13 @@ RouteFactory router() {
             create: (context) => SignUpBloc(), child: SignUpView());
         break;
       case '/home':
-        screen = HomeView();
+        screen = MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => NewExchangeBloc(),
+              ),
+            ],
+            child: HomeView());
         break;
     }
 

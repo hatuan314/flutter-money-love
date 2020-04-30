@@ -49,6 +49,8 @@ dependencies:
   bubbled_navigation_bar: ^0.0.4
   # Carousel Slide
   carousel_slider: ^2.0.0
+  # Auto Size Text
+  auto_size_text: ^2.1.0
 
 dev_dependencies:
   flutter_test:
