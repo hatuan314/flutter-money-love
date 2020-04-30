@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moneyloveapp/blocs/blocs.dart';
-import 'package:moneyloveapp/ui/ultil-widgets/ultil_widget.dart';
 import 'package:moneyloveapp/utils/utils.dart';
 
 class NewExchangePageView extends StatefulWidget {
