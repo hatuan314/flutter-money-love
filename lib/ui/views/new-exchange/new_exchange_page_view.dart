@@ -25,8 +25,10 @@ class _NewExchangePageView extends State<NewExchangePageView> {
       body: BlocBuilder<NewExchangeBloc, NewExchangeState>(
           builder: (context, state) {
         return SafeArea(
-          child: Column(
-            children: <Widget>[_mAppbar(), Expanded(child: _mBody(state))],
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[_mAppbar(), Expanded(child: _mBody(state))],
+            ),
           ),
         );
       }),

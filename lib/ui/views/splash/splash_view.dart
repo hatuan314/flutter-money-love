@@ -18,8 +18,8 @@ class _SplashViewState extends State<SplashView> {
     // TODO: implement initState
     super.initState();
     initData().then((value) async {
-      Navigator.pushReplacementNamed(context, '/register');
-//      Navigator.pushReplacementNamed(context, '/home');
+//      Navigator.pushReplacementNamed(context, '/register');
+      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 
