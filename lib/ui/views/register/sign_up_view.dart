@@ -44,13 +44,13 @@ class _SignUpViewState extends State<SignUpView>
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width*0.8,
                 MediaQuery.of(context).size.height * 0.2, 100, Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width*0.1,
+                MediaQuery.of(context).size.height * 0.08, 50, Colors.cyan),
           ),
         ],
       ),

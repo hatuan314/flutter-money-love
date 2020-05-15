@@ -39,15 +39,15 @@ class _SignInViewState extends State<SignInView> {
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter: MyPainter(
-                MediaQuery.of(context).size.width,
+                MediaQuery.of(context).size.width*0.3,
                 MediaQuery.of(context).size.height * 0.2,
-                100,
+                60,
                 Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width*0.8,
+                MediaQuery.of(context).size.height * 0.1, 90, Colors.cyan),
           ),
         ],
       ),

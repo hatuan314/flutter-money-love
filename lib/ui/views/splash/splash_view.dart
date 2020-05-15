@@ -18,8 +18,8 @@ class _SplashViewState extends State<SplashView> {
     // TODO: implement initState
     super.initState();
     initData().then((value) async {
-//      Navigator.pushReplacementNamed(context, '/register');
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/register');
+//      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 
@@ -82,17 +82,17 @@ class _SplashViewState extends State<SplashView> {
         children: <Widget>[
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: MyPainter(_width, _height, 30, Colors.cyan),
+            foregroundPainter: MyPainter(_width*0.33, _height*0.8, 15, Colors.cyan),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter:
-                MyPainter(_width, _height, 60, Colors.indigoAccent),
+                MyPainter(_width*0.2, _height*0.2, 40, Colors.indigoAccent),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter:
-                MyPainter(_width, _height, 100, Colors.pinkAccent),
+                MyPainter(_width*0.95, _height*0.3, 80, Colors.pinkAccent),
           ),
         ],
       ),

@@ -5,16 +5,14 @@ import 'package:flutter/material.dart';
 class MyPainter extends CustomPainter {
   final double radius;
   final Color color;
-  final double width;
-  final double height;
+  final double dX;
+  final double dY;
 
-  MyPainter(this.width, this.height, this.radius, this.color);
+  MyPainter(this.dX, this.dY, this.radius, this.color);
 
   @override
   void paint(Canvas canvas, Size size) {
     // TODO: implement paint
-    final double dX = Random().nextInt(width.ceil()).ceilToDouble();
-    final double dY = Random().nextInt(height.ceil()).ceilToDouble();
     final center = Offset(dX, dY);
     final paint = Paint()
       ..color = color != null ? color : Colors.blue

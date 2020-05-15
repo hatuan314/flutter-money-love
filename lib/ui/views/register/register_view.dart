@@ -23,15 +23,15 @@ class RegisterView extends StatelessWidget {
           CustomPaint(
             size: Size(double.infinity, double.infinity),
             foregroundPainter: MyPainter(
-                MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height * 0.2,
-                100,
+                MediaQuery.of(context).size.width*0.02,
+                MediaQuery.of(context).size.height*0.05,
+                70,
                 Colors.pink),
           ),
           CustomPaint(
             size: Size(double.infinity, double.infinity),
-            foregroundPainter: MyPainter(MediaQuery.of(context).size.width,
-                MediaQuery.of(context).size.height * 0.2, 150, Colors.cyan),
+            foregroundPainter: MyPainter(MediaQuery.of(context).size.width*0.85,
+                MediaQuery.of(context).size.height * 0.3, 120, Colors.cyan),
           ),
         ],
       ),
